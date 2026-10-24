@@ -1,0 +1,19 @@
+{
+  "name": "devflow-tools",
+  "owner": {
+    "name": "MinhHuyen"
+  },
+  "metadata": {
+    "description": "Personal marketplace for the devflow AI engineering workflow plugin",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "devflow",
+      "source": "./plugins/devflow",
+      "description": "Structured AI engineering workflow: analyze (with clarifying questions) -> design with acceptance criteria -> implement test-first -> review -> verify with Playwright evidence -> ship a PR, with human approval checkpoints.",
+      "version": "0.1.0",
+      "keywords": ["workflow", "tdd", "code-review", "playwright", "pull-request"]
+    }
+  ]
+}
