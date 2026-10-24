@@ -10,11 +10,17 @@ Build exactly what the approved design says, proving each acceptance criterion w
 ## Steps
 
 1. Read `02-design.md`. Confirm the ACs are marked approved; if not, stop and ask.
-2. Create a branch from the up-to-date default branch: `feat/<slug>` (or `fix/<slug>` for bugs). Never commit to the default branch.
-3. **Red:** write the tests from the test plan first. Name each test with its AC ID (e.g. `"AC-2: rejects empty title"`) so results trace back to criteria. Run them and confirm they fail for the expected reason (not because of a typo or import error). Commit: `test(<scope>): add failing tests for <slug>`.
-4. **Green:** implement in the order of the task breakdown. After each step run the relevant tests; commit when a step is green, e.g. `feat(<scope>): <what>`.
-5. **Refactor** only within the touched code, keeping tests green.
-6. Run the full unit/integration suite, lint, format, and typecheck. Fix what this change broke. Report pre-existing failures without fixing them unless asked.
+2. **Scaffold first (new projects only).** If `.devflow/config.md` says `bootstrapped: true` and the repo has no application code yet:
+   - On the default branch, generate the project skeleton chosen in the design (framework boilerplate, test runner, lint/format config, Playwright config with the evidence helper from the verify skill). No feature code.
+   - Confirm it installs, builds, and that the empty test suite runs.
+   - Commit `chore: scaffold <stack> project` and push to the default branch (`git push origin <default-branch>`). The user approved this push during setup; if they did not, ask now.
+   - Update `CLAUDE.md` with the real commands and commit/push it as `docs: update CLAUDE.md commands`.
+   This gives the feature PR a clean baseline, so the PR diff contains only the feature.
+3. Create a branch from the up-to-date default branch: `feat/<slug>` (or `fix/<slug>` for bugs). Never commit feature work to the default branch.
+4. **Red:** write the tests from the test plan first. Name each test with its AC ID (e.g. `"AC-2: rejects empty title"`) so results trace back to criteria. Run them and confirm they fail for the expected reason (not because of a typo or import error). Commit: `test(<scope>): add failing tests for <slug>`.
+5. **Green:** implement in the order of the task breakdown. After each step run the relevant tests; commit when a step is green, e.g. `feat(<scope>): <what>`.
+6. **Refactor** only within the touched code, keeping tests green.
+7. Run the full unit/integration suite, lint, format, and typecheck. Fix what this change broke. Report pre-existing failures without fixing them unless asked.
 
 ## Guardrails
 

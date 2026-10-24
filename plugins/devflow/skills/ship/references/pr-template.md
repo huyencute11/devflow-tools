@@ -1,30 +1,48 @@
-## Summary
-<2–3 sentences: what changed and why>
+## Why
+<2–4 sentences: the problem or user need, who is affected, and why it matters now.>
 
-## Context
-- Problem: <one line, link to issue if any>
-- Decisions from clarification: <key answers from 01-analysis.md>
-- Approach: <one line; alternative considered and why not>
+<Key clarifications agreed before building, if any:>
+- <question> → <decision>
 
-## Acceptance criteria
-| AC | Criterion | Test | Result | Evidence |
-|----|-----------|------|--------|----------|
-| AC-1 | <Given/When/Then, short> | `<test name>` | ✅ | [screenshot](<url>) |
+## What was implemented
+<1–2 sentences summarising the solution.>
 
-## Screenshots
-**AC-1 — <state>**
-![AC-1](<absolute url>)
+- <change 1: user-visible behaviour or component>
+- <change 2>
+- <change 3>
+
+**Approach:** <one line>. Considered <alternative>, not chosen because <reason>.
+
+## Verification
+**Unit / integration tests:** `<test command>` → <N passed, 0 failed>
+**E2E (Playwright):** `<e2e command>` → <N passed>
+**Lint / typecheck:** <passed>
+**Code review:** <N findings, all Critical/Major fixed; follow-ups listed below>
+
+| AC | Acceptance criterion | Test | Result |
+|----|----------------------|------|--------|
+| AC-1 | <Given/When/Then, short> | `<test name>` | ✅ |
+| AC-2 | ... | ... | ✅ |
+
+## Evidence
+**AC-1 — <what this screenshot proves>**
+![AC-1](<url>)
+
+**AC-2 — <what this proves>**
+![AC-2](<url>)
+
+<For non-UI ACs, a trimmed output block:>
+```
+<request / response or command output>
+```
 
 ## How to test locally
 ```bash
-<install command>
-<run command>
-<test commands>
+<install>
+<run>
+<test>
 ```
 
-## Review notes
-- Review findings fixed: <count, highlights>
-- Known limitations / follow-ups: <list or "none">
-
-## Docs
-Full analysis, design and verification: `docs/devflow/<slug>/`
+## Notes
+- Follow-ups: <list or "none">
+- Known limitations: <list or "none">

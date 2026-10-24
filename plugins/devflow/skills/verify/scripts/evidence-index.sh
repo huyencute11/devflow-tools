@@ -2,7 +2,7 @@
 # List evidence files grouped by acceptance criterion as a markdown table.
 # Usage: evidence-index.sh <evidence-dir>
 set -euo pipefail
-dir="${1:-docs/devflow/evidence}"
+dir="${1:-.devflow/evidence}"
 if [ ! -d "$dir" ]; then
   echo "No evidence directory at $dir" >&2
   exit 1

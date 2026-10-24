@@ -10,22 +10,22 @@ Drive a task through six phases. Each phase has its own skill; follow that skill
 
 ## Phases
 
-| # | Phase | Skill | Output file (in `docs/devflow/<slug>/`) | Checkpoint |
+| # | Phase | Skill | Output file (in `.devflow/<slug>/`) | Checkpoint |
 |---|-------|-------|------------------------------------------|------------|
-| 0 | Setup (only if repo not prepared) | `setup` | `CLAUDE.md` at repo root | No |
+| 0 | Setup: repo case, GitHub info for new projects, commands | `setup` | `CLAUDE.md`, `.devflow/config.md` | **Yes** for new projects – repo owner/name/visibility |
 | 1 | Analyze + clarifying questions | `analyze` | `01-analysis.md` | **Yes** – answers to questions |
 | 2 | Design + acceptance criteria | `design` | `02-design.md` | **Yes** – approve design and ACs |
-| 3 | Implement, test-first | `implement` | code + tests, commits | Light – summary |
+| 3 | Implement: scaffold + push baseline (new projects), then test-first on a feature branch | `implement` | code + tests, commits | Light – summary |
 | 4 | Review | `review` | `03-review.md` | **Yes** – choose fixes |
-| 5 | Verify + capture evidence | `verify` | `04-verification.md`, `evidence/` | **Yes** – approve results |
-| 6 | Ship: push + PR | `ship` | `05-pr-description.md`, PR | **Yes** – approve before push |
+| 5 | Verify + capture evidence | `verify` | `04-verification.md`, `evidence/` | **Yes** – approve results = approve shipping |
+| 6 | Ship: push, publish evidence, create PR | `ship` | `05-pr-description.md`, PR | No – runs after verify approval |
 
 ## Start
 
 1. Parse `$ARGUMENTS`. If it contains `--lite`, use lite mode (below). The rest is the problem statement or a path to a spec file; read it.
-2. Derive a short kebab-case `<slug>` from the problem (e.g. `todo-due-dates`). Create `docs/devflow/<slug>/`.
-3. If the repo has no `CLAUDE.md` or the test/run commands are unknown, run the `setup` phase first.
-4. Create `docs/devflow/<slug>/00-progress.md` with a checklist of phases and the start time. Update it at the end of every phase (status, time spent, key decisions).
+2. Derive a short kebab-case `<slug>` from the problem (e.g. `todo-due-dates`). Create `.devflow/<slug>/`. If the argument is a file (e.g. `docs/problem.md`), keep it as the source of truth and re-read it whenever requirements are in doubt.
+3. Run the `setup` phase first unless the repo already has an `origin` remote, a `CLAUDE.md` with known commands, and `.devflow/` in `.gitignore`. For a new project, setup asks for GitHub owner/repo/visibility before anything else.
+4. Create `.devflow/<slug>/00-progress.md` with a checklist of phases and the start time. Update it at the end of every phase (status, time spent, key decisions).
 
 ## Checkpoint protocol
 
@@ -35,7 +35,14 @@ At every checkpoint:
 - **Stop and wait.** Do not start the next phase until the user approves, changes, or says to continue.
 - Record the decision in the phase file under a `## Decision log` heading.
 
-Skip checkpoints only if the user explicitly says "auto" / "no checkpoints". Even then, always stop before `ship` pushes anything.
+Skip checkpoints only if the user explicitly says "auto" / "no checkpoints". Even then, always stop at the verify checkpoint: its approval is the approval to push and open the PR.
+
+## Where things live
+
+- `.devflow/<slug>/` – working documents and evidence. Gitignored: never committed to the code.
+- Feature branch – code, tests, config only.
+- `devflow-evidence` branch – screenshots for PR descriptions, published by ship, never merged.
+- PR description – Why, What was implemented, Verification, Evidence images.
 
 ## Lite mode (time-boxed, e.g. 60–90 min interview)
 

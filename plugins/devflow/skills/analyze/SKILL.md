@@ -12,7 +12,7 @@ Understand the problem well enough that design cannot go in the wrong direction.
 
 1. Read the problem (`$ARGUMENTS`, or the file it points to). Read `CLAUDE.md`.
 2. Explore the codebase only as far as needed: entry points, the modules the change will touch, existing tests for those modules, similar existing features to copy patterns from. Use the Playwright MCP to look at the running app if the task is UI-related and the app can be started.
-3. Write `docs/devflow/<slug>/01-analysis.md` following `references/analysis-template.md`.
+3. Write `.devflow/<slug>/01-analysis.md` following `references/analysis-template.md`.
 4. Make the questions good:
    - Ask only questions whose answer would change the design, the scope, or the acceptance criteria. Drop anything that is a pure implementation detail.
    - Order by impact. At most 5–7 questions; in lite mode at most 3–4.

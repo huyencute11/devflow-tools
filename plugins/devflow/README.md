@@ -9,6 +9,6 @@ See the repository root README for installation and usage.
 ## Install
 
 ```
-/plugin marketplace add your-user/devflow-tools
+/plugin marketplace add huyencute11/devflow-tools
 /plugin install devflow@devflow-tools
 ```

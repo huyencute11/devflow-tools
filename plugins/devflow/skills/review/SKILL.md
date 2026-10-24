@@ -11,7 +11,7 @@ Get an independent, critical look at the change before verifying and shipping.
 
 1. Determine the base: the default branch (from `git symbolic-ref refs/remotes/origin/HEAD`, fallback `main`). Collect `git diff <base>...HEAD --stat` and the list of commits.
 2. Launch the **code-reviewer** agent. Give it: the slug, the path to `02-design.md`, and the base branch. Let it read the diff and the files itself. Do not pre-summarise or defend the code to it; the point is a fresh perspective.
-3. Write its findings to `docs/devflow/<slug>/03-review.md`: a table of ID, severity (Critical / Major / Minor / Nit), file:line, issue, suggested fix. Add your own brief note per finding: agree / disagree with reason.
+3. Write its findings to `.devflow/<slug>/03-review.md`: a table of ID, severity (Critical / Major / Minor / Nit), file:line, issue, suggested fix. Add your own brief note per finding: agree / disagree with reason.
 
 ## Checkpoint
 

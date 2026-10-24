@@ -9,7 +9,7 @@ import { test as base, expect } from '@playwright/test';
 import fs from 'node:fs';
 import path from 'node:path';
 
-const EVIDENCE_DIR = process.env.DEVFLOW_EVIDENCE_DIR ?? 'docs/devflow/evidence';
+const EVIDENCE_DIR = process.env.DEVFLOW_EVIDENCE_DIR ?? '.devflow/evidence';
 
 type Evidence = { evidence: (name: string) => Promise<void> };
 
@@ -61,7 +61,7 @@ webServer: {
 },
 ```
 
-Run: `DEVFLOW_EVIDENCE_DIR=docs/devflow/<slug>/evidence npx playwright test`
+Run: `DEVFLOW_EVIDENCE_DIR=.devflow/<slug>/evidence npx playwright test`
 
 ## Python (pytest-playwright)
 
@@ -70,7 +70,7 @@ import os
 from pathlib import Path
 import pytest
 
-EVIDENCE_DIR = Path(os.environ.get("DEVFLOW_EVIDENCE_DIR", "docs/devflow/evidence"))
+EVIDENCE_DIR = Path(os.environ.get("DEVFLOW_EVIDENCE_DIR", ".devflow/evidence"))
 
 @pytest.fixture
 def evidence(page):
@@ -80,7 +80,7 @@ def evidence(page):
     return capture
 ```
 
-Run: `DEVFLOW_EVIDENCE_DIR=docs/devflow/<slug>/evidence pytest tests/e2e`
+Run: `DEVFLOW_EVIDENCE_DIR=.devflow/<slug>/evidence pytest tests/e2e`
 
 ## Good evidence
 

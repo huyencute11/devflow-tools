@@ -9,8 +9,8 @@ Decide how to build it and define exactly what "done" means. Write no production
 
 ## Steps
 
-1. Read `docs/devflow/<slug>/01-analysis.md` including the answers. If questions are still unanswered, stop and ask.
-2. Write `docs/devflow/<slug>/02-design.md` following `references/design-template.md`.
+1. Read `.devflow/<slug>/01-analysis.md` including the answers. If questions are still unanswered, stop and ask.
+2. Write `.devflow/<slug>/02-design.md` following `references/design-template.md`.
 3. Approach:
    - Give the chosen approach and **one** realistic alternative with the reason it was not chosen.
    - List files to create/modify and the responsibility of each.
